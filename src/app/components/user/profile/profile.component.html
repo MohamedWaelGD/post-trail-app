@@ -1,0 +1,42 @@
+<div class="row w-100" *ngIf="user && activeUser">
+  <div class="col-12 col-sm-10 col-md-8 col-lg-6 container my-5 p-5 bg-light-50 rounded shadow" *ngIf="user as User">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 style="font-size: 3.2rem;">User Profile</h1>
+      <button class="btn btn-warning p-2 h-50" *ngIf="user.uid == activeUser.uid" routerLink="/user/edit-profile">Edit Profile</button>
+      <div *ngIf="user.uid != activeUser.uid">
+        <button class="btn btn-primary p-2 h-50" *ngIf="!firendStatus" (click)="requestFriend()">Request Add Friend</button>
+        <button class="btn btn-primary p-2 h-50" *ngIf="firendStatus && firendStatus.userId1 != activeUser.uid && firendStatus.status == 'request'" (click)="applyRequestFriend()">Apply Request</button>
+        <button class="btn btn-primary p-2 h-50" *ngIf="firendStatus && firendStatus.userId1 == activeUser.uid && firendStatus.status == 'request'" (click)="cancelRequestFriend()">Cancel Request</button>
+        <button class="btn btn-danger p-2 h-50" *ngIf="firendStatus && firendStatus.status != 'request'" (click)="unfriend()">Unfriend</button>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center position-relative">
+      <img class="rounded-circle" width="250" height="250" style="object-fit: cover;"
+        [src]="user.photoURL ?? 'assets/Unknown_person.jpg'" />
+      <h1 class="text-center mt-3">{{user.displayName}}</h1>
+    </div>
+    <hr />
+    <div>
+      <h1 class="text-center">Information</h1>
+      <h5 *ngIf="user.birthdate">Birthdate: {{user.birthdate}}</h5>
+      <h5 *ngIf="user.phone">Phone Number: {{user.phone}}</h5>
+      <h5 *ngIf="user.address">Address: {{user.address}}</h5>
+    </div>
+    <hr />
+    <h1 class="text-center">Posts</h1>
+    <div class="container my-0 p-4 d-flex justify-content-center">
+      <div class="row">
+        <div class="col-12 justify-content-center" *ngIf="user.uid == activeUser.uid">
+          <div class="mx-auto">
+            <button class="btn btn-primary" routerLink="/post/create">Create Post</button>
+          </div>
+        </div>
+        <div class="col-12 mt-3 justify-content-center" *ngFor="let post of posts" #postDiv>
+          <div class="w-100 bg-light rounded p-3 shadow" style="background-color: rgb(134, 134, 134);">
+            <app-post [post]="post" [activeUser]="activeUser" (onDelete)="postDiv.style.display='none';"></app-post>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

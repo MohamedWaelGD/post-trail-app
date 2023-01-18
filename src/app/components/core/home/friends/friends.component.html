@@ -1,0 +1,30 @@
+<div class="p-3" *ngIf="activeUser">
+  <div>
+    <h4>Friend Requests</h4>
+    <div class="d-flex gap-2 p-3" *ngFor="let friend of requests()">
+      <div class="">
+        <img width="60" height="60" class="rounded-circle" style="object-fit: cover;" [src]="requestedFriends[friend].photoURL ?? 'assets/Unknown_person.jpg'" />
+      </div>
+      <div class="w-100">
+        <p class="fw-bold">{{requestedFriends[friend].displayName}}</p>
+        <div class="d-flex w-100">
+          <button class="btn btn-primary flex-grow-1" (click)="applyRequestFriend(requestedFriends[friend].uid)">Confirm</button>
+          <button class="btn btn-dark flex-grow-1" (click)="unfriend(requestedFriends[friend].uid)">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" *ngIf="requests().length == 0">
+      <p>No friend requests</p>
+    </div>
+    <h4>Friends</h4>
+    <div class="d-flex gap-2 align-items-center friend-btn p-3" *ngFor="let friend of friends()" routerLink="/user/profile/{{myFriends[friend].uid}}">
+      <div class="">
+        <img width="60" height="60" class="rounded-circle" style="object-fit: cover;" [src]="myFriends[friend].photoURL ?? 'assets/Unknown_person.jpg'" />
+      </div>
+      <p class="fw-bold mb-0">{{myFriends[friend].displayName}}</p>
+    </div>
+    <div class="text-center" *ngIf="friends().length == 0">
+      <p>No friends here</p>
+    </div>
+  </div>
+</div>

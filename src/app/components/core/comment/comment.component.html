@@ -1,0 +1,17 @@
+<div *ngIf="commentData && commentUserOwner && activeUser" #comment>
+  <div class="d-flex p-2" style="background-color: rgba(255, 255, 255, .2);">
+    <div>
+      <img width="60" height="60" class="rounded-circle me-2" style="object-fit: cover; cursor: pointer;" [src]="commentUserOwner?.photoURL ?? 'assets/Unknown_person.jpg'" routerLink="/user/profile/{{commentUserOwner?.uid}}"/>
+    </div>
+    <div class="w-100">
+      <div class="d-flex align-items-center justify-content-between">
+        <div>
+          <h5 class="my-auto fw-bold" style="cursor: pointer" routerLink="/user/profile/{{commentUserOwner?.uid}}">{{commentUserOwner.displayName}}</h5>
+          <p class="mb-1">{{commentData.data.createdAt | date}}</p>
+        </div>
+        <button class="btn btn-danger" *ngIf="commentUserOwner.uid === activeUser.uid" (click)="deleteComment()">Delete</button>
+      </div>
+      <p class="mb-0">{{commentData.data.content}}</p>
+    </div>
+  </div>
+</div>

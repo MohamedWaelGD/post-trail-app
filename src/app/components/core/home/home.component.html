@@ -1,0 +1,21 @@
+<div class="row w-100 m-0 position-relative">
+  <div class="col-12 col-md-9">
+    <div class="container my-0 p-4 d-flex justify-content-center">
+      <div class="row justify-content-center" style="min-width: 400px;">
+        <div class="col-12 justify-content-center">
+          <div class="col-sm-10 col-md-8 col-lg-5 mx-auto">
+            <button class="btn btn-primary" routerLink="/post/create">Create Post</button>
+          </div>
+        </div>
+        <div class="col-12 row mt-3 justify-content-center w-100" *ngFor="let post of posts" #postDiv>
+          <div class="col-12 col-sm-10 col-md-8 col-lg-5 bg-light rounded p-3 shadow" style="background-color: rgb(134, 134, 134);">
+            <app-post [post]="post" [activeUser]="activeUser" (onDelete)="postDiv.style.display='none';"></app-post>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-none d-md-block col-3 shadow p-0 position-fixed" style="overflow-y: scroll; height: 100vh; right: 0;">
+    <app-friends></app-friends>
+  </div>
+</div>

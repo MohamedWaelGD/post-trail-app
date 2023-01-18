@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.bg-light-50 {
+    background-color: rgb(245, 245, 245);
+}
+
+.icon-main-size {
+    font-size: 2.5rem;
+}
