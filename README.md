@@ -1,5 +1,18 @@
 # PostTrailApp
 
+## Home
+![Web capture_18-1-2023_162933_localhost](https://user-images.githubusercontent.com/100571535/213224927-96d893fe-ae93-4ac9-bf45-619ef1a35bef.jpeg)
+
+## Profile
+![Web capture_18-1-2023_162953_localhost](https://user-images.githubusercontent.com/100571535/213225075-83b9ad13-346a-426a-9dfd-b2caab7d31c1.jpeg)
+![Web capture_18-1-2023_162957_localhost](https://user-images.githubusercontent.com/100571535/213225087-a04761d3-6f7c-4cf2-a071-25b25b2c7d3d.jpeg)
+
+## Search
+![Web capture_18-1-2023_163028_localhost](https://user-images.githubusercontent.com/100571535/213225161-f6eac9db-8090-48d3-940f-703feda064af.jpeg)
+
+## Create Post
+![Web capture_18-1-2023_163054_localhost](https://user-images.githubusercontent.com/100571535/213225265-63457059-6360-4c34-b7b9-03024583b1d1.jpeg)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.0.
 
 ## Development server
